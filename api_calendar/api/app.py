@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_cors import CORS
-from flask_marshmallow import Marshmallow
 from dotenv import load_dotenv
 
 from extensions import db
@@ -15,9 +14,6 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-
-
-ma=Marshmallow(app)
 
 db.init_app(app)
 
