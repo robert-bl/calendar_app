@@ -3,6 +3,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from extensions import db, ma
 
+#User Model
 class User(db.Model):
     __tablename__ = "users"
 
@@ -10,6 +11,7 @@ class User(db.Model):
     name: Mapped[str] = mapped_column(String(50))
     password: Mapped[str] = mapped_column(String(50))
 
+#User Schema
 class UserSchema(ma.Schema):
     class Meta:
         fields = ('id', 'name', 'password')

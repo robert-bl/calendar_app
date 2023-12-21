@@ -5,6 +5,7 @@ import datetime
 
 from extensions import db, ma
 
+#Event Model
 class Event(db.Model):
     __tablename__ = "events"
 
@@ -15,6 +16,8 @@ class Event(db.Model):
     end_time: Mapped[datetime.datetime] = mapped_column(DateTime)
     timestamp: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
+
+#Event Schema
 class EventSchema(ma.Schema):
     class Meta:
         fields = ('id', 'name', 'description', 'start_time', 'end_time', 'timestamp')
