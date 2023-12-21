@@ -17,3 +17,9 @@ def create_user():
     db.session.commit()
 
     return user_schema.jsonify(new_user)
+
+@user_routes.route('/get/<id>', methods=['GET'])
+def get_user(id):
+    user = User.query.get(id)
+
+    return user_schema.jsonify(user)
